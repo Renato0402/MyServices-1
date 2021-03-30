@@ -1,0 +1,113 @@
+.panel.panel-default {
+    border-top-width: 3px;
+}
+
+.panel {
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .14), 0 2px 2px 0 rgba(0, 0, 0, .098), 0 1px 5px 0 rgba(0, 0, 0, .084);
+    border: 0;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    background-color: black;
+}
+
+.thumb96 {
+    width: 96px;
+    height: 96px;
+}
+
+.thumb48 {
+    width: 48px;
+    height: 48px;
+}
+
+#container {
+    padding-top: 110px;
+    padding-bottom: 110px;
+}
+
+#containerTudo {
+    background-color: rgba(12, 12, 12, 0.966);
+    width: 100%;
+    padding-right: 8%;
+    padding-left: 8%;
+    height: 115vh;
+}
+
+.col-sm-2 {
+    color: white;
+}
+
+.h4 {
+    color: white;
+}
+
+.m0 {
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+.panel-body {
+    padding: 20px;
+}
+
+.panel-title {
+    color: white;
+}
+
+.text-bold {
+    padding-left: 10px;
+    color: white;
+}
+
+.form-group {
+    margin-left: 80px;
+}
+
+label {
+    color: white;
+}
+
+.col-lg-1 {
+    margin-right: 50px;
+}
+
+#titulo {
+    color: white;
+    font-size: large;
+    padding-bottom: 8px;
+    margin-left: 80px;
+}
+
+#nome {
+    margin-right: 128px;
+}
+
+#sobrenome {
+    margin-left: 14px;
+}
+
+#data {
+    padding-left: 50px;
+}
+
+#dia {
+    margin-left: 30px;
+}
+
+#mes,
+#ano {
+    margin-left: 11px;
+}
+
+#botao {
+    margin-top: 10%;
+    margin-left: 110%;
+    width: 50%;
+}
+
+.heading {
+    color: black;
+}

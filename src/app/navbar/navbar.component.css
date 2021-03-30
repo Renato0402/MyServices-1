@@ -1,0 +1,32 @@
+.navbar {
+    background-color: #094275;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+}
+
+.navbar-brand {
+    margin-left: 15%;
+    width: 160px;
+}
+
+#entrar {
+    color: white;
+    margin-right: 40px;
+}
+
+#playlists {
+    color: white;
+    margin-right: 40px;
+}
+
+#ajuda {
+    color: white;
+    margin-right: 280px;
+}

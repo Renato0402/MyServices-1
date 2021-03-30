@@ -1,0 +1,26 @@
+[0922/005420.670:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0922/005420.671:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0922/005420.671:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0922/005420.671:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0922/005420.671:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0922/005420.671:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0922/005420.671:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0922/005420.671:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0922/073530.768:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0922/073530.769:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0922/073530.769:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0922/073530.769:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0922/073530.769:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0922/073530.769:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0922/073530.770:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0922/073530.770:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1015/074347.387:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não pode encontrar o caminho especificado. (0x3)
+[1015/222631.884:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não pode encontrar o caminho especificado. (0x3)
+[1015/224738.388:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não pode encontrar o caminho especificado. (0x3)
+[1018/231933.500:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não pode encontrar o caminho especificado. (0x3)
+[1103/074630.270:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não pode encontrar o caminho especificado. (0x3)
+[1103/162702.354:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não pode encontrar o caminho especificado. (0x3)
+[1106/164959.901:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não pode encontrar o caminho especificado. (0x3)
+[1107/113436.648:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não pode encontrar o caminho especificado. (0x3)
+[1208/153039.688:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não pode encontrar o caminho especificado. (0x3)
+[1210/075625.158:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não pode encontrar o caminho especificado. (0x3)

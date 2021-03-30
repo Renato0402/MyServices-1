@@ -1,0 +1,104 @@
+<div class="container-fluid">
+
+    <!--
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons " rel="stylesheet ">
+
+    <h2 id="fraseServ " *ngIf="(isLoggedIn$ | async)==t rue && (userPlaylists$ | async).length> 0">Minhas Playlists</h2>
+
+    <div class="card-columns" *ngIf="(isLoggedIn$ | async) == true">
+        <div class="card" *ngFor="let playlist of userPlaylists$ | async">
+            <a class="clicable" routerLink="/musicas/{{playlist.id}}">
+                <img class="card-img-top" src="{{playlist.capa}}" alt="jpg" *ngIf="playlist.capa != null">
+
+                <div class="card-img-top img-fluid">
+                    <div class="card-block">
+                        <h4 class="card-title">{{playlist.nome}}</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <h2 id="fraseServ">Playlists Públicas</h2>
+
+    <div class="card-columns">
+        <div class="card" *ngFor="let playlist of playlists">
+            <a class="clicable" routerLink="/musicas/{{playlist.id}}">
+                <img class="card-img-top" src="{{playlist.capa}}" alt="jpg">
+
+                <div class="card-img-top img-fluid">
+                    <div class="card-block">
+                        <h4 class="card-title">{{playlist.nome}}</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="fab-container">
+    <div class="fab fab-icon-holder">
+        <i class="material-icons">add</i>
+    </div>
+
+    <ul class="fab-options">
+        <li *ngIf="(isLoggedIn$ | async) == true">
+            <span class="fab-label">Adicionar Playlist</span>
+            <div class="fab-icon-holder" data-toggle="modal" data-target="#centralModalSm">
+                <i class="material-icons">add</i>
+            </div>
+        </li>
+        <li *ngIf="(isLoggedIn$ | async) == false">
+            <span class="fab-label">Adicionar Playlist</span>
+            <div class="fab-icon-holder" data-toggle="modal" data-target="#loginRequest">
+                <i class="material-icons">add</i>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="modal fade" id="centralModalSm" tabindex="-1" role="dialog" aria-labelledby="newPlaylistModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fluid" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="newPlaylistModalLabel">Crie uma nova Playlist</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span id="closeButtom" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form [formGroup]="form">
+                <div class="modal-body">
+                    <div class="md-form">
+                        <div class="form-group col-md-10">
+                            <label for="playlistName">Insira o nome da nova playlist:</label>
+                            <input type="text" id="playlistName" formControlName="playlistName" class="form-control" placeholder="Nome da Playlist" required>
+                            <div *ngIf="playlistName.invalid && playlistName.touched">
+                                <small *ngIf="playlistName.errors?.required" class="text-danger">É necessário informar um
+                                nome para a playlist.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="addButtom" type="submit" class="btn btn-success btn-sm" [disabled]="form.invalid" (click)="criarPlaylist()" data-dismiss="modal">Criar Playlist</button>
+                    <button id="fecharButtom" type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="loginRequest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-header d-flex justify-content-center">
+                <p class="heading">Você não está logado. Deseja fazer login?</p>
+            </div>
+
+            <div id="loginRequestFooter" class="modal-footer">
+                <a routerLink="/entrar" class="btn btn-success" data-dismiss="modal">Sim</a>
+                <a type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Não</a>
+            </div>
+        </div>
+    </div>-->
+</div>

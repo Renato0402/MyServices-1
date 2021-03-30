@@ -1,0 +1,23 @@
+<nav class="navbar fixed-top">
+    <a class="navbar-brand" routerLink="/home">
+        <img id="banner-logo" width="100%" alt="Logo" src="assets\images\logo.png" />
+    </a>
+
+    <ul class="nav justify-content-end">
+        <li class="nav-item" *ngIf="(isLoggedIn$ | async) == true">
+            <a id="entrar" routerLink="/userProfile">Perfil</a>
+        </li>
+        <li class="nav-item" *ngIf="(isLoggedIn$ | async) == false">
+            <a id="entrar" routerLink="/entrar">Entrar</a>
+        </li>
+        <li class="nav-item">
+            <a id="playlists" routerLink="/playlists">Profissionais</a>
+        </li>
+        <li class="nav-item">
+            <a id="playlists" routerLink="/playlists">Serviços</a>
+        </li>
+        <li class="nav-item">
+            <a id="ajuda" routerLink="/ajuda">Ajuda</a>
+        </li>
+    </ul>
+</nav>
