@@ -29,18 +29,19 @@ export class CadastroComponent implements OnInit {
       "mes": new FormControl('', Validators.required),
       "ano": new FormControl('', Validators.required),
       "sexo": new FormControl('', Validators.required),
+      "tipoConta": new FormControl('', Validators.required),
     }, {
       validator: [this.emailMatchValidation("email", "confirmEmail"), this.senhaMatchValidation("senha", "confirmSenha"), this.userExistsValidation("email")]
     });
   }
 
   submit() {
-    //var user: Usuario = { id: uuidv4(), nome: this.nome.value, sobrenome: this.sobrenome.value, email: this.email.value, senha: this.senha.value, dia: this.dia.value, mes: this.mes.value, ano: this.ano.value, sexo: this.sexo.value, playlists: [] };
+    var user: Usuario = { id: uuidv4(), nome: this.nome.value, sobrenome: this.sobrenome.value, email: this.email.value, senha: this.senha.value, dia: this.dia.value, mes: this.mes.value, ano: this.ano.value, sexo: this.sexo.value, tipoConta: this.tipoConta.value};
 
-    /*this.usersService.addUser(user).subscribe(() => {
+    this.usersService.addUser(user).subscribe(() => {
       this.form.reset()
       this.router.navigate(['/entrar']);
-    })*/
+    })
   }
 
   get nome() {
@@ -81,6 +82,10 @@ export class CadastroComponent implements OnInit {
 
   get sexo() {
     return this.form.get('sexo')
+  }
+
+  get tipoConta() {
+    return this.form.get('tipoConta')
   }
 
   emailMatchValidation(email: string, confirmEmail: string) {

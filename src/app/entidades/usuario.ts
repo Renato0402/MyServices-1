@@ -9,5 +9,5 @@ export class Usuario {
     mes: Number
     ano: Number
     sexo: string
-    tipo: Number
+    tipoConta: string
 }

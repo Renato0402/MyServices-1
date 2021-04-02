@@ -17,3 +17,14 @@
     padding-left: 325px;
     padding-right: 325px;
 }
+
+.carousel-fade {
+    animation-delay: 2ms;
+}
+
+.item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 40vh;
+}
