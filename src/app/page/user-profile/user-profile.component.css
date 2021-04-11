@@ -7,7 +7,7 @@
     border: 0;
     border-radius: 8px;
     margin-bottom: 5px;
-    background-color: black;
+    background-color: #094275;
 }
 
 .thumb96 {
@@ -26,7 +26,7 @@
 }
 
 #containerTudo {
-    background-color: rgba(12, 12, 12, 0.966);
+    background-color: rgb(83, 99, 53);
     width: 100%;
     padding-right: 8%;
     padding-left: 8%;

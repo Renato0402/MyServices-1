@@ -2,16 +2,23 @@
     
     #background {
         margin-top: 70.4px;
-        background-color: white;
+        background-color: #495697;
+    }
+    
+    #titulo {
+        text-align: center;
+        padding-top: 15px;
+        color: white;
     }
     
     #faq {
         width: 50%;
         margin-left: 25%;
+        padding-bottom: 15px;
     }
     
     .accordion {
-        background-color: #E8E8E8;
+        background-color: white;
         color: black;
         font-weight: 500;
         cursor: pointer;
@@ -29,21 +36,17 @@
     
     .active,
     .accordion:hover {
-        background-color: #C8C8C8;
+        background-color: #b6b6b6;
     }
     /* Style the accordion panel. Note: hidden by default */
     
     .panel {
         padding: 0 18px;
-        background-color: #E8E8E8;
+        color: black;
+        background-color: white;
         display: none;
         overflow: hidden;
         border-radius: 10px
-    }
-    
-    #titulo {
-        text-align: center;
-        color: white;
     }
     
     h3 {
@@ -55,8 +58,4 @@
     p {
         margin-top: 8px;
         font-weight: 400;
-    }
-    
-    img {
-        margin-left: 32%;
     }
