@@ -1,8 +1,10 @@
 .container-fluid {
     margin-top: 70.4px;
+    padding-top: 60px;
+    padding-bottom: 60px;
     width: 100%;
-    height: 120vh;
-    background-color: white;
+    height: 140vh;
+    background-color: #45528E;
     padding-left: 20%;
     padding-right: 30%;
     align-items: center;
@@ -13,9 +15,11 @@
     background-color: #edeeef;
     height: 100%;
     width: 120%;
+    padding-top: 15px;
     padding-left: 10%;
     padding-right: 10%;
-    box-shadow: 1px 8px 8px 8px #888888;
+    border-radius: 15px;
+    box-shadow: 1px 1px 100px 1px #888888;
 }
 
 .form-group {
@@ -24,7 +28,7 @@
 }
 
 #tituloForm {
-    color: black;
+    color: #094275;
     text-align: center;
     font: Bold 30px Sans-serif;
     padding-top: 20px;
@@ -34,7 +38,7 @@
 hr {
     margin: 5px;
     height: 2px;
-    background-color: black;
+    background-color: #edeeef;
     margin-bottom: 20px;
 }
 

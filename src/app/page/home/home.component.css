@@ -2,7 +2,7 @@
 .player-div {
     position: relative;
     background-color: #45528E;
-    height: 140vh;
+    height: 145vh;
 }
 
 .jumbotron {
@@ -48,4 +48,8 @@
     padding: 15px;
     background: #333333;
     background: rgba(0, 0, 0, 0.75);
+}
+
+.card-text {
+    font-size: 20px;
 }
