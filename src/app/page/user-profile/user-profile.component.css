@@ -124,3 +124,60 @@ b {
     display: flex;
     align-items: center;
 }
+
+.container {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding-left: 0%;
+    padding-right: 0%;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .3s ease;
+    background-color: rgba(131, 131, 131, 0.5);
+}
+
+.icon {
+    color: black;
+    font-size: 100px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.container:hover .overlay {
+    opacity: 1;
+}
+
+.container .fa-download {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#uploadImageIcon {
+    padding-left: 94%;
+    margin-bottom: 94%;
+}
+
+#profilePictureContainer {
+    position: relative;
+}
+
+#uploadImageIcon {
+    position: absolute;
+    bottom: 200;
+    left: 200;
+}

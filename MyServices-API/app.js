@@ -66,7 +66,8 @@ app.post("/users", (req, res) => {
         mes: req.body.mes,
         ano: req.body.ano,
         sexo: req.body.sexo,
-        tipoConta: req.body.tipoConta
+        tipoConta: req.body.tipoConta,
+        habilidades: req.body.habilidades
     }, error => {
         if (error) {
             return res.json("Erro: " + error);
@@ -95,7 +96,8 @@ app.put("/users/:id", (req, res) => {
         mes: req.body.mes,
         ano: req.body.ano,
         sexo: req.body.sexo,
-        tipoConta: req.body.tipoConta
+        tipoConta: req.body.tipoConta,
+        habilidades: req.body.habilidades
     }, error => {
         if (error) {
             return res.json("Erro: " + error);

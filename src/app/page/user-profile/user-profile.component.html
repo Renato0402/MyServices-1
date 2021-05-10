@@ -167,8 +167,17 @@
                 <!-- Left Column -->
                 <div class="w3-third">
                     <div class="w3-white w3-text-grey w3-card-4">
-                        <div class="w3-display-container">
-                            <img src="assets/images/icons/avatar_hat.jpg" style="width:100%" alt="Avatar">
+                        <div id="profilePictureContainer" class="w3-display-container">
+                            <div class="container">
+                                <img id="profilePicture" src="assets/images/icons/avatar_hat.jpg" style="width:100%" alt="Avatar">
+                                <div class="overlay" onclick="document.getElementById('fileSelector').click();">
+                                    <a class="icon" title="User Profile">
+                                        <input type="file" id="fileSelector" name="myfile" style="display: none;" accept="image/*">
+                                        <i class="material-icons">add_photo_alternate</i>
+                                    </a>
+                                </div>
+                            </div>
+
                             <div class="w3-display-bottomleft w3-container w3-text-black">
                                 <h2 id="username"></h2>
                             </div>
@@ -178,10 +187,7 @@
                             <p id="email"><i class="material-icons">email</i></p>
                             <hr>
                             <p class="w3-large"><b><i class="material-icons">star</i>Habilidades</b></p>
-                            <p>Adobe Photoshop</p>
-                            <p>Photography</p>
-                            <p>Illustrator</p>
-                            <p>Media</p>
+                            <p *ngFor="let habilidade of user.habilidades">{{habilidade}}</p>
                             <hr>
                             <div class="text-center">
                                 <a class="btn btn-primary" id="edit" data-toggle="modal" data-target="#editProfileModalSm">Editar Perfil</a>
@@ -349,6 +355,10 @@
                                                     <option>Profissional</option>
                                                 </select>
                                                 </div>
+                                            </div>
+                                            <div class="form-group" *ngIf="tipoConta.value == 'Profissional'">
+                                                <label for="inputHabilidades">Informe suas Habilidades:</label>
+                                                <input id="inputHabilidades" formControlName="habilidades" type="text" class="form-control" placeholder="Informe suas habilidades separas por virgula.">
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-4">

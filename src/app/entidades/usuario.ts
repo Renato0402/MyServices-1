@@ -10,4 +10,5 @@ export class Usuario {
     ano: Number
     sexo: string
     tipoConta: string
+    habilidades: string[]
 }

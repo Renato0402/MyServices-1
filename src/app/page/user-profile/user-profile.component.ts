@@ -13,8 +13,13 @@ export class UserProfileComponent implements OnInit {
   form: FormGroup
   user: Usuario
   Data: number = Date.now()
+  ListaHabilidades: string[]
+  fileSelector: HTMLInputElement
+  profilePhoto: HTMLImageElement
+  name: any;
+  path: string;
 
-  constructor(private formBuilder: FormBuilder, private usersService: UsersService) {}
+  constructor(private formBuilder: FormBuilder, private usersService: UsersService) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -28,7 +33,8 @@ export class UserProfileComponent implements OnInit {
       "mes": new FormControl('', Validators.required),
       "ano": new FormControl('', Validators.required),
       "sexo": new FormControl('', Validators.required),
-      "tipoDeConta": new FormControl('', Validators.required)
+      "tipoDeConta": new FormControl('', Validators.required),
+      "habilidades": new FormControl('')
     }, {
       validator: [this.emailMatchValidation("email", "confirmEmail"), this.senhaMatchValidation("senha", "confirmSenha")]
     });
@@ -41,11 +47,36 @@ export class UserProfileComponent implements OnInit {
 
     document.getElementById("email").append("  " + this.email.value)
     document.getElementById("tipoDeConta").append("  " + this.tipoConta.value)
+
+    this.fileSelector = <HTMLInputElement>document.getElementById('fileSelector')
+    this.profilePhoto = <HTMLImageElement>document.getElementById('profilePicture')
+
+    this.fileSelector.addEventListener('change', (event: Event) => {
+      const file = this.fileSelector.files[0]
+
+      if (file) {
+        //var img = document.createElement("img")
+
+        var reader = new FileReader()
+        reader.onloadend = function () {
+          //console.log(reader.result)
+
+          loadImage(reader.result.toString())
+        }
+
+        reader.readAsDataURL(file);
+        //$("input").after(img)
+      }
+    });
   }
 
   submit() {
-    let updatedUser:Usuario = { id: this.user.id, nome: this.nome.value, sobrenome: this.sobrenome.value, email: this.email.value, senha: this.senha.value, dia: this.dia.value, mes: this.mes.value, ano: this.ano.value, sexo: this.sexo.value, tipoConta: this.tipoConta.value}
-    
+    this.ListaHabilidades = this.habilidades.value.split(",")
+
+    this.user.habilidades = this.ListaHabilidades
+
+    let updatedUser: Usuario = { id: this.user.id, nome: this.nome.value, sobrenome: this.sobrenome.value, email: this.email.value, senha: this.senha.value, dia: this.dia.value, mes: this.mes.value, ano: this.ano.value, sexo: this.sexo.value, tipoConta: this.tipoConta.value, habilidades: this.ListaHabilidades }
+
     this.usersService.updateUser(updatedUser).subscribe()
 
     document.getElementById("username").textContent = this.nome.value + " " + this.sobrenome.value
@@ -95,6 +126,10 @@ export class UserProfileComponent implements OnInit {
     return this.form.get('tipoDeConta')
   }
 
+  get habilidades() {
+    return this.form.get('habilidades')
+  }
+
   emailMatchValidation(email: string, confirmEmail: string) {
     return (formGroup: FormGroup) => {
       const controlToMatch = formGroup.controls[email];
@@ -129,11 +164,11 @@ export class UserProfileComponent implements OnInit {
     }
   }
 
-  logout(){
+  logout() {
     this.usersService.logout()
   }
 
-  fillForm(){
+  fillForm() {
     this.nome.setValue(this.user.nome)
     this.sobrenome.setValue(this.user.sobrenome)
     this.email.setValue(this.user.email)
@@ -143,7 +178,42 @@ export class UserProfileComponent implements OnInit {
     this.ano.setValue(this.user.ano)
     this.sexo.setValue(this.user.sexo)
     this.tipoConta.setValue(this.user.tipoConta)
+    this.habilidades.setValue(this.user.habilidades)
   }
+}
+
+function loadImage(string: string) {
+  var profilePhoto = <HTMLImageElement>document.getElementById('profilePicture')
+
+  let height = profilePhoto.height
+  let width = profilePhoto.width
+
+  console.log(height + " " + width)
+
+  profilePhoto.src = string
+  profilePhoto.height = height
+  profilePhoto.width = width
+
+  this.fileSelector.after(this.profilePhoto)
+}
+
+function loadImage2() {
+  let fileSelector = <HTMLInputElement>document.getElementById('fileSelector')
+  let profilePhoto = <HTMLImageElement>document.getElementById('profilePicture')
+
+  fileSelector.addEventListener('change', (event: Event) => {
+    const file = fileSelector.files[0]
+
+    if (file) {
+      var reader = new FileReader()
+      reader.onloadend = function () {
+        profilePhoto.src = reader.result.toString()
+      }
+
+      reader.readAsDataURL(file);
+      fileSelector.after(profilePhoto)
+    }
+  });
 }
 
 
