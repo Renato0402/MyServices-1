@@ -28,7 +28,7 @@ export class UserProfileComponent implements OnInit {
       "mes": new FormControl('', Validators.required),
       "ano": new FormControl('', Validators.required),
       "sexo": new FormControl('', Validators.required),
-      "tipoDeConta": new FormControl('', Validators.required),
+      "tipoDeConta": new FormControl('', Validators.required)
     }, {
       validator: [this.emailMatchValidation("email", "confirmEmail"), this.senhaMatchValidation("senha", "confirmSenha")]
     });
@@ -41,11 +41,9 @@ export class UserProfileComponent implements OnInit {
   }
 
   submit() {
-
-
-    //let updatedUser:Usuario = { id: this.user.id, nome: this.nome.value, sobrenome: this.sobrenome.value, email: this.email.value, senha: this.senha.value, dia: this.dia.value, mes: this.mes.value, ano: this.ano.value, sexo: this.sexo.value}
+    let updatedUser:Usuario = { id: this.user.id, nome: this.nome.value, sobrenome: this.sobrenome.value, email: this.email.value, senha: this.senha.value, dia: this.dia.value, mes: this.mes.value, ano: this.ano.value, sexo: this.sexo.value, tipoConta: this.tipoConta.value}
     
-    //this.usersService.updateUser(updatedUser).subscribe()
+    this.usersService.updateUser(updatedUser).subscribe()
 
     document.getElementById("username").textContent = this.nome.value + " " + this.sobrenome.value
   }
@@ -88,6 +86,10 @@ export class UserProfileComponent implements OnInit {
 
   get sexo() {
     return this.form.get('sexo')
+  }
+
+  get tipoConta() {
+    return this.form.get('tipoDeConta')
   }
 
   emailMatchValidation(email: string, confirmEmail: string) {
@@ -137,6 +139,7 @@ export class UserProfileComponent implements OnInit {
     this.mes.setValue(this.user.mes)
     this.ano.setValue(this.user.ano)
     this.sexo.setValue(this.user.sexo)
+    this.tipoConta.setValue(this.user.tipoConta)
   }
 }
 

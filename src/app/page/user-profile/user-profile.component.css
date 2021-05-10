@@ -7,7 +7,7 @@
     border: 0;
     border-radius: 8px;
     margin-bottom: 5px;
-    background-color: #094275;
+    background-color: #edeeef;
 }
 
 .thumb96 {
@@ -26,7 +26,7 @@
 }
 
 #containerTudo {
-    background-color: rgb(83, 99, 53);
+    background-color: #45528E;
     width: 100%;
     padding-right: 8%;
     padding-left: 8%;
@@ -34,19 +34,19 @@
 }
 
 .col-sm-2 {
-    color: white;
+    color: black;
 }
 
 .h4 {
-    color: white;
+    color: black;
 }
 
 .m0 {
-    color: white;
+    color: black;
 }
 
 p {
-    color: white;
+    color: black;
 }
 
 .panel-body {
@@ -54,53 +54,43 @@ p {
 }
 
 .panel-title {
-    color: white;
+    color: black;
 }
 
 .text-bold {
     padding-left: 10px;
-    color: white;
+    color: black;
 }
 
 .form-group {
-    margin-left: 80px;
+    margin-left: 15px;
 }
 
 label {
-    color: white;
+    color: black;
 }
 
 .col-lg-1 {
-    margin-right: 50px;
+    margin-right: 15px;
 }
 
 #titulo {
-    color: white;
+    color: black;
     font-size: large;
     padding-bottom: 8px;
-    margin-left: 80px;
-}
-
-#nome {
-    margin-right: 128px;
+    margin-left: 2%;
 }
 
 #sobrenome {
-    margin-left: 14px;
+    margin-left: 30%;
 }
 
-#data {
-    padding-left: 50px;
-}
+#data {}
 
-#dia {
-    margin-left: 30px;
-}
+#dia {}
 
 #mes,
-#ano {
-    margin-left: 11px;
-}
+#ano {}
 
 #botao {
     margin-top: 10%;
@@ -110,4 +100,17 @@ label {
 
 .heading {
     color: black;
+}
+
+#info {
+    margin-top: 5%;
+}
+
+#edit {
+    margin-bottom: 3%;
+}
+
+#logout {
+    margin-left: 5%;
+    margin-bottom: 3%;
 }

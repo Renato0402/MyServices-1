@@ -66,7 +66,7 @@ app.post("/users", (req, res) => {
         mes: req.body.mes,
         ano: req.body.ano,
         sexo: req.body.sexo,
-        playlists: ""
+        tipoConta: req.body.tipoConta
     }, error => {
         if (error) {
             return res.json("Erro: " + error);
@@ -95,7 +95,7 @@ app.put("/users/:id", (req, res) => {
         mes: req.body.mes,
         ano: req.body.ano,
         sexo: req.body.sexo,
-        playlists: req.body.playlists
+        tipoConta: req.body.tipoConta
     }, error => {
         if (error) {
             return res.json("Erro: " + error);

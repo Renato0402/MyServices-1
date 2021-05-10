@@ -2,13 +2,13 @@
 .player-div {
     position: relative;
     background-color: #45528E;
-    height: 145vh;
+    height: 125vh;
 }
 
 .jumbotron {
     margin-top: 3%;
     border: 0.1px solid;
-    background-color: #F5F5F5;
+    background-color: #edeeef;
 }
 
 .carousel-inner {
@@ -23,7 +23,7 @@
 }
 
 .card-deck {
-    padding-top: 3%;
+    padding-top: 3.5%;
     width: 80%;
     margin-left: 200px;
 }
