@@ -114,3 +114,13 @@ label {
     margin-left: 5%;
     margin-bottom: 3%;
 }
+
+p {
+    display: flex;
+    align-items: center;
+}
+
+b {
+    display: flex;
+    align-items: center;
+}

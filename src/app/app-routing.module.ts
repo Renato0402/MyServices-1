@@ -8,6 +8,7 @@ import { PlaylistsComponent } from './page/playlists/playlists.component';
 import { MusicasComponent } from './page/musicas/musicas.component';
 import { CadastroComponent } from './page/cadastro/cadastro.component';
 import { UserProfileComponent } from './page/user-profile/user-profile.component';
+import { ProfissionaisComponent } from './page/profissionais/profissionais.component';
 
 const routes: Routes = [
   {path: '',pathMatch: 'full',redirectTo: 'home'},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: "entrar", component: EntrarComponent},
   {path: "cadastro", component: CadastroComponent},
   {path: "userProfile", component: UserProfileComponent},
+  {path: "profissionais", component: ProfissionaisComponent},
   {path: "playlists", component: PlaylistsComponent},
   {path: "musicas/:id", component: MusicasComponent},
   {path: "ajuda", component: AjudaComponent}

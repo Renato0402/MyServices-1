@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <h2 id="fraseServ">Profissionais Disponíveis</h2>
+
+    <div class="card-columns">
+        <div class="card" *ngFor="let profissional of profissionais">
+            <!--<img class="card-img-top" src="{{playlist.capa}}" alt="jpg">-->
+
+            <div class="card-img-top img-fluid">
+                <div class="card-block">
+                    <h4 class="card-title">{{profissional.nome}}</h4>
+                </div>
+            </div>
+        </div>
+
+        <!--<div class="card" *ngFor="let playlist of profissionais">
+            <a class="clicable" routerLink="/musicas/{{playlist.id}}">
+                <img class="card-img-top" src="{{playlist.capa}}" alt="jpg">
+
+                <div class="card-img-top img-fluid">
+                    <div class="card-block">
+                        <h4 class="card-title">{{playlist.nome}}</h4>
+                    </div>
+                </div>
+            </a>
+    </div>
+
+    <div class="card-columns">
+        <div class="card" *ngFor="let playlist of profissionais">
+            <a class="clicable" routerLink="/musicas/{{playlist.id}}">
+                <img class="card-img-top" src="{{playlist.capa}}" alt="jpg">
+
+                <div class="card-img-top img-fluid">
+                    <div class="card-block">
+                        <h4 class="card-title">{{playlist.nome}}</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>-->
+    </div>
+</div>
+
+<div class="modal fade" id="loginRequest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-header d-flex justify-content-center">
+                <p class="heading">Você não está logado. Deseja fazer login?</p>
+            </div>
+
+            <div id="loginRequestFooter" class="modal-footer">
+                <a routerLink="/entrar" class="btn btn-success" data-dismiss="modal">Sim</a>
+                <a type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Não</a>
+            </div>
+        </div>
+    </div>
+</div>

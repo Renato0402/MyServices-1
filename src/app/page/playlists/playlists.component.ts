@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Usuario } from 'src/app/entidades/usuario';
 import { PlaylistsService } from 'src/app/services/playlists.service';
+import { ProfissionaisService } from 'src/app/services/profissionais.service';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -12,15 +13,16 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./playlists.component.css']
 })
 export class PlaylistsComponent implements OnInit {
-  /*userPlaylistsSubject: BehaviorSubject<Playlist[]>
-  userPlaylists$: Observable<Playlist[]>*/
+  userPlaylistsSubject: BehaviorSubject<Usuario[]>
+  userPlaylists$: Observable<Usuario[]>
   form: FormGroup
   isLoggedIn$: Observable<boolean>;
   user: Usuario
+  playlists: Usuario[]
 
-  constructor(private usersService: UsersService, private playlistsService: PlaylistsService, private formBuilder: FormBuilder) {
-    /*this.userPlaylistsSubject = new BehaviorSubject<Playlist[]>([])
-    this.userPlaylists$ = this.userPlaylistsSubject.asObservable()*/
+  constructor(private usersService: UsersService, private playlistsService: PlaylistsService, private formBuilder: FormBuilder, private profissionaisService: ProfissionaisService) {
+    this.userPlaylistsSubject = new BehaviorSubject<Usuario[]>([])
+    this.userPlaylists$ = this.userPlaylistsSubject.asObservable()
   }
 
   ngOnInit(): void {
@@ -39,6 +41,10 @@ export class PlaylistsComponent implements OnInit {
     /*this.playlistsService.getPublicPlaylists().subscribe((playlists: Playlist[]) => {
       this.playlists = playlists
     })*/
+
+    this.profissionaisService.getProfissionais().subscribe((profissionais: Usuario[]) => {
+      this.playlists = profissionais
+    })
   }
 
   get playlistName() {

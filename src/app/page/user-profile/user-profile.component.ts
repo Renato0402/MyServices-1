@@ -38,6 +38,9 @@ export class UserProfileComponent implements OnInit {
     this.fillForm()
 
     document.getElementById("username").textContent = this.nome.value + " " + this.sobrenome.value
+
+    document.getElementById("email").append("  " + this.email.value)
+    document.getElementById("tipoDeConta").append("  " + this.tipoConta.value)
   }
 
   submit() {
