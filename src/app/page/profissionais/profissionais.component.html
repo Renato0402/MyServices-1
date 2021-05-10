@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <h2 id="fraseServ">Profissionais Disponíveis</h2>
 
-    <div class="card-columns">
+    <div class="card-columns" *ngIf="profissionais != undefined">
         <div class="card" *ngFor="let profissional of profissionais">
             <!--<img class="card-img-top" src="{{playlist.capa}}" alt="jpg">-->
 
@@ -11,32 +11,6 @@
                 </div>
             </div>
         </div>
-
-        <!--<div class="card" *ngFor="let playlist of profissionais">
-            <a class="clicable" routerLink="/musicas/{{playlist.id}}">
-                <img class="card-img-top" src="{{playlist.capa}}" alt="jpg">
-
-                <div class="card-img-top img-fluid">
-                    <div class="card-block">
-                        <h4 class="card-title">{{playlist.nome}}</h4>
-                    </div>
-                </div>
-            </a>
-    </div>
-
-    <div class="card-columns">
-        <div class="card" *ngFor="let playlist of profissionais">
-            <a class="clicable" routerLink="/musicas/{{playlist.id}}">
-                <img class="card-img-top" src="{{playlist.capa}}" alt="jpg">
-
-                <div class="card-img-top img-fluid">
-                    <div class="card-block">
-                        <h4 class="card-title">{{playlist.nome}}</h4>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>-->
     </div>
 </div>
 

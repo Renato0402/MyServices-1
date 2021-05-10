@@ -14,18 +14,18 @@
 }
 
 .card-columns {
-    margin-left: 10%;
+    margin-left: 42.5%;
     margin-right: 10%;
 }
 
 .card {
-    background-color: rgb(39, 37, 37);
+    background-color: #edeeef;
     border-radius: 8px;
 }
 
 .card-title {
     text-align: center;
-    color: white;
+    color: black;
 }
 
 .card-img-top {
