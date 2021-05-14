@@ -11,4 +11,5 @@ export class Usuario {
     sexo: string
     tipoConta: string
     habilidades: string[]
+    profilePicture: string
 }

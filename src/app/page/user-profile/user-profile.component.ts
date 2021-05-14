@@ -58,10 +58,10 @@ export class UserProfileComponent implements OnInit {
         //var img = document.createElement("img")
 
         var reader = new FileReader()
-        reader.onloadend = function () {
+        reader.onloadend = () => {
           //console.log(reader.result)
 
-          loadImage(reader.result.toString())
+          this.loadImage(reader.result.toString())
         }
 
         reader.readAsDataURL(file);
@@ -71,11 +71,17 @@ export class UserProfileComponent implements OnInit {
   }
 
   submit() {
-    this.ListaHabilidades = this.habilidades.value.split(",")
+    let updatedUser: Usuario
 
-    this.user.habilidades = this.ListaHabilidades
+    if(this.tipoConta.value == "Contratante"){
+      updatedUser = { id: this.user.id, nome: this.nome.value, sobrenome: this.sobrenome.value, email: this.email.value, senha: this.senha.value, dia: this.dia.value, mes: this.mes.value, ano: this.ano.value, sexo: this.sexo.value, tipoConta: this.tipoConta.value, habilidades: [], profilePicture: this.user.profilePicture}
+    }
+    else if(this.tipoConta.value == "Profissional"){
+      this.ListaHabilidades = this.habilidades.value.split(",")
+      this.user.habilidades = this.ListaHabilidades
 
-    let updatedUser: Usuario = { id: this.user.id, nome: this.nome.value, sobrenome: this.sobrenome.value, email: this.email.value, senha: this.senha.value, dia: this.dia.value, mes: this.mes.value, ano: this.ano.value, sexo: this.sexo.value, tipoConta: this.tipoConta.value, habilidades: this.ListaHabilidades }
+      updatedUser = { id: this.user.id, nome: this.nome.value, sobrenome: this.sobrenome.value, email: this.email.value, senha: this.senha.value, dia: this.dia.value, mes: this.mes.value, ano: this.ano.value, sexo: this.sexo.value, tipoConta: this.tipoConta.value, habilidades: this.ListaHabilidades, profilePicture: this.user.profilePicture}
+    }
 
     this.usersService.updateUser(updatedUser).subscribe()
 
@@ -180,10 +186,25 @@ export class UserProfileComponent implements OnInit {
     this.tipoConta.setValue(this.user.tipoConta)
     this.habilidades.setValue(this.user.habilidades)
   }
+
+  loadImage(string: string) {
+    let height = this.profilePhoto.height
+    let width = this.profilePhoto.width
+  
+    this.profilePhoto.src = string
+    this.profilePhoto.height = height
+    this.profilePhoto.width = width
+  
+    //fileSelector.after(profilePhoto)
+  
+    let updatedUser: Usuario = { id: this.user.id, nome: this.user.nome, sobrenome: this.user.sobrenome, email: this.user.email, senha: this.user.senha, dia: this.user.dia, mes: this.user.mes, ano: this.user.ano, sexo: this.user.sexo, tipoConta: this.user.tipoConta, habilidades: this.user.habilidades, profilePicture: string}
+    this.usersService.updateUser(updatedUser).subscribe()
+  }
 }
 
-function loadImage(string: string) {
+/*function loadImage(string: string, user: Usuario, usersService: UsersService) {
   var profilePhoto = <HTMLImageElement>document.getElementById('profilePicture')
+  let fileSelector = <HTMLInputElement>document.getElementById('fileSelector')
 
   let height = profilePhoto.height
   let width = profilePhoto.width
@@ -194,8 +215,11 @@ function loadImage(string: string) {
   profilePhoto.height = height
   profilePhoto.width = width
 
-  this.fileSelector.after(this.profilePhoto)
-}
+  //fileSelector.after(profilePhoto)
+
+  let updatedUser: Usuario = { id: this.user.id, nome: this.nome.value, sobrenome: this.sobrenome.value, email: this.email.value, senha: this.senha.value, dia: this.dia.value, mes: this.mes.value, ano: this.ano.value, sexo: this.sexo.value, tipoConta: this.tipoConta.value, habilidades: this.ListaHabilidades, profilePicture: ""}
+  usersService.updateUser(updatedUser).subscribe()
+}*/
 
 function loadImage2() {
   let fileSelector = <HTMLInputElement>document.getElementById('fileSelector')

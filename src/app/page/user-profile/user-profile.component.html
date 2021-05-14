@@ -169,7 +169,7 @@
                     <div class="w3-white w3-text-grey w3-card-4">
                         <div id="profilePictureContainer" class="w3-display-container">
                             <div class="container">
-                                <img id="profilePicture" src="assets/images/icons/avatar_hat.jpg" style="width:100%" alt="Avatar">
+                                <img id="profilePicture" src="{{user.profilePicture}}" style="width:100%" alt="Avatar">
                                 <div class="overlay" onclick="document.getElementById('fileSelector').click();">
                                     <a class="icon" title="User Profile">
                                         <input type="file" id="fileSelector" name="myfile" style="display: none;" accept="image/*">
@@ -333,7 +333,7 @@
                                                 </div>
                                                 <div id="ano" class="form-group col-md-2">
                                                     <label for="inputAno">Ano</label>
-                                                    <input type="number" class="form-control" id="inputAno" formControlName="ano" [class.is-invalid]="(ano.invalid && ano.touched || ano.value >= (Data | date: 'yyyy')) " minlength="4" maxlength="4">
+                                                    <input type="number" class="form-control" id="inputAno" formControlName="ano" [class.is-invalid]="(ano.invalid && ano.touched || ano.value >= (Data | date: 'yyyy'))" minlength="4" maxlength="4">
                                                 </div>
                                             </div>
                                             <div class="form-row">

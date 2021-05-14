@@ -34,8 +34,8 @@ app.get("/users", (req, res) => {
             snapshot.forEach(childSnapshot => {
                 let childData = childSnapshot.val()
 
-                if (childData.playlists == "") {
-                    childData.playlists = []
+                if (childData.habilidades == "") {
+                    childData.habilidades = []
                 }
 
                 data.push(childData)
@@ -67,7 +67,8 @@ app.post("/users", (req, res) => {
         ano: req.body.ano,
         sexo: req.body.sexo,
         tipoConta: req.body.tipoConta,
-        habilidades: req.body.habilidades
+        habilidades: req.body.habilidades,
+        profilePicture: req.body.profilePicture
     }, error => {
         if (error) {
             return res.json("Erro: " + error);
@@ -80,8 +81,8 @@ app.post("/users", (req, res) => {
 app.put("/users/:id", (req, res) => {
     let userId = req.params.id
 
-    if (JSON.stringify(req.body.playlists) == "[]") {
-        req.body.playlists = ""
+    if (JSON.stringify(req.body.habilidades) == "[]") {
+        req.body.habilidades = ""
     }
 
     let referencePath = '/users/' + userId + '/';
@@ -97,7 +98,8 @@ app.put("/users/:id", (req, res) => {
         ano: req.body.ano,
         sexo: req.body.sexo,
         tipoConta: req.body.tipoConta,
-        habilidades: req.body.habilidades
+        habilidades: req.body.habilidades,
+        profilePicture: req.body.profilePicture
     }, error => {
         if (error) {
             return res.json("Erro: " + error);
