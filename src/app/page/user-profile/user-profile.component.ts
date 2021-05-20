@@ -77,10 +77,14 @@ export class UserProfileComponent implements OnInit {
       updatedUser = { id: this.user.id, nome: this.nome.value, sobrenome: this.sobrenome.value, email: this.email.value, senha: this.senha.value, dia: this.dia.value, mes: this.mes.value, ano: this.ano.value, sexo: this.sexo.value, tipoConta: this.tipoConta.value, habilidades: [], profilePicture: this.user.profilePicture}
     }
     else if(this.tipoConta.value == "Profissional"){
-      this.ListaHabilidades = this.habilidades.value.split(",")
-      this.user.habilidades = this.ListaHabilidades
+      if(this.habilidades.value.length != 0){
+        this.ListaHabilidades = this.habilidades.value.split(",")
+        this.user.habilidades = this.ListaHabilidades
 
-      updatedUser = { id: this.user.id, nome: this.nome.value, sobrenome: this.sobrenome.value, email: this.email.value, senha: this.senha.value, dia: this.dia.value, mes: this.mes.value, ano: this.ano.value, sexo: this.sexo.value, tipoConta: this.tipoConta.value, habilidades: this.ListaHabilidades, profilePicture: this.user.profilePicture}
+        updatedUser = { id: this.user.id, nome: this.nome.value, sobrenome: this.sobrenome.value, email: this.email.value, senha: this.senha.value, dia: this.dia.value, mes: this.mes.value, ano: this.ano.value, sexo: this.sexo.value, tipoConta: this.tipoConta.value, habilidades: this.ListaHabilidades, profilePicture: this.user.profilePicture}
+      }else{
+        updatedUser = { id: this.user.id, nome: this.nome.value, sobrenome: this.sobrenome.value, email: this.email.value, senha: this.senha.value, dia: this.dia.value, mes: this.mes.value, ano: this.ano.value, sexo: this.sexo.value, tipoConta: this.tipoConta.value, habilidades: [], profilePicture: this.user.profilePicture}
+      }
     }
 
     this.usersService.updateUser(updatedUser).subscribe()
