@@ -13,7 +13,9 @@ export class ProfissionaisComponent implements OnInit {
   user: Usuario
   public profissionais: Usuario[]
 
-  constructor(private profissionaisService: ProfissionaisService) { }
+  constructor(private profissionaisService: ProfissionaisService) { 
+    this.profissionais = []
+  }
 
   ngOnInit(): void {
     //this.isLoggedIn$ = this.usersService.isLoggedIn();
