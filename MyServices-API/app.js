@@ -7,7 +7,8 @@ const { Console } = require("console");
 const app = express()
 
 //app.use(express.json())
-app.use(bodyParser.json())
+app.use(bodyParser.json({ limit: '10mb', extended: true }))
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }))
 app.use(cors())
 
 app.listen(3000)
@@ -34,7 +35,7 @@ app.get("/users", (req, res) => {
             snapshot.forEach(childSnapshot => {
                 let childData = childSnapshot.val()
 
-                if (childData.habilidades == "") {
+                if (childData.habilidades == " ") {
                     childData.habilidades = []
                 }
 
@@ -82,7 +83,7 @@ app.put("/users/:id", (req, res) => {
     let userId = req.params.id
 
     if (JSON.stringify(req.body.habilidades) == "[]") {
-        req.body.habilidades = ""
+        req.body.habilidades = " "
     }
 
     let referencePath = '/users/' + userId + '/';

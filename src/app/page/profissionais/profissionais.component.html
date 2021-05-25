@@ -1,20 +1,21 @@
 <div class="container-fluid">
     <h2 id="fraseServ">Profissionais Disponíveis</h2>
 
-    <div class="card-columns" *ngIf="profissionais.length != 0">
+    <div class="card-columns" *ngIf="profissionais.length != 0 && profissionais != undefined">
         <div class="card" *ngFor="let profissional of profissionais">
             <!--<img class="card-img-top" src="{{playlist.capa}}" alt="jpg">-->
 
             <div id="card">
                 <div class="card-block">
                     <div>
-                        <img id="profilePicture" src="{{profissional.profilePicture}}" style="width:100%" alt="Avatar">
+                        <img id="profilePicture" src="{{profissional.profilePicture}}" style="width:100%; height: 258px;" alt="Avatar">
                     </div>
 
                     <div>
                         <h2 class="card-title">{{profissional.nome}}</h2>
                         <div id="userSkillsDiv">
                             <p id="userSkills" *ngFor="let habilidade of profissional.habilidades">{{habilidade}}</p>
+                            <p id="userSkills" *ngIf="profissionais.habilidades == undefined || profissional.habilidades.length == 0"></p>
                         </div>
                         <button id="botao" class="btn btn-primary">Entrar em Contato</button>
                     </div>

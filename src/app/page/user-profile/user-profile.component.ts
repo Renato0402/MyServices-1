@@ -196,8 +196,8 @@ export class UserProfileComponent implements OnInit {
     let width = this.profilePhoto.width
   
     this.profilePhoto.src = string
-    this.profilePhoto.height = height
     this.profilePhoto.width = width
+    this.profilePhoto.height = height
   
     //fileSelector.after(profilePhoto)
   
