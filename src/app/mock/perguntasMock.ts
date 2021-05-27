@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core'
 import { PerguntasCategoria } from '../entidades/PerguntasCategoria'
-import { Playlist } from '../entidades/playlist'
 
 export class PlaylistsMock {
     perguntas: PerguntasCategoria[]
