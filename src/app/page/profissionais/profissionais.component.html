@@ -15,7 +15,6 @@
                         <h2 class="card-title">{{profissional.nome}}</h2>
                         <div id="userSkillsDiv">
                             <p id="userSkills" *ngFor="let habilidade of profissional.habilidades">{{habilidade}}</p>
-                            <p id="userSkills" *ngIf="profissionais.habilidades == undefined || profissional.habilidades.length == 0"></p>
                         </div>
                         <button id="botao" class="btn btn-primary">Entrar em Contato</button>
                     </div>

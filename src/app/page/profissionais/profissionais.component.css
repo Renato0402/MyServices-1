@@ -27,6 +27,7 @@
 .card-title {
     text-align: center;
     color: black;
+    margin-top: 2%;
 }
 
 .card-img-top {
@@ -188,9 +189,7 @@ p {
     padding: 1.5%;
 }
 
-#userSkillsDiv {
-    display: flex;
-}
+#userSkillsDiv {}
 
 #botao {}
 
@@ -204,4 +203,8 @@ p {
 
 #card {
     padding: 3px;
+}
+
+#userSkillsDiv {
+    min-height: 50px;
 }
