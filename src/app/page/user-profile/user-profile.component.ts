@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
+import { PerguntasCategoria } from 'src/app/entidades/PerguntasCategoria';
 import { Usuario } from 'src/app/entidades/usuario';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -18,6 +19,7 @@ export class UserProfileComponent implements OnInit {
   profilePhoto: HTMLImageElement
   name: any;
   path: string;
+  
 
   constructor(private formBuilder: FormBuilder, private usersService: UsersService) { }
 

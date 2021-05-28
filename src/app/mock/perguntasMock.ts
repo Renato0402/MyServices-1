@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { PerguntasCategoria } from '../entidades/PerguntasCategoria'
 
-export class PlaylistsMock {
+export class PerguntasMock {
     perguntas: PerguntasCategoria[]
 
     constructor() {

@@ -17,7 +17,7 @@
                             <p id="userSkills" *ngFor="let habilidade of profissional.habilidades">{{habilidade}}</p>
                         </div>
                         <div class="text-center">
-                            <a class="btn btn-primary" id="contactButtom" data-toggle="modal" data-target="#contactFormularioSm">Entrar em Contato</a>
+                            <a class="btn btn-primary" id="contactButtom" data-toggle="modal" data-target="#contactFormularioSm" (click)="setCardClickedCategorias(profissional.habilidades)">Entrar em Contato</a>
                         </div>
                     </div>
                 </div>
@@ -31,8 +31,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title w-100" id="contractFormularioSmModalLabel">Formulario de orçamento prévio personalizado</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span id="closeButtom" aria-hidden="true">&times;</span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="formReset()">
+                    <span id="closeButtom" aria-hidden="true" >&times;</span>
                 </button>
             </div>
             <div class="modal-body">
@@ -72,19 +72,33 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="inputCEP">CEP:</label>
-                                    <input id="inputCEP" formControlName="cep" [class.is-invalid]="cep.invalid && cep.touched" type="cep" class="form-control" aria-describedby="cepHelp" placeholder="00000-000" required pattern="\d{5}-\d{3}">
+                                    <input id="inputCEP" formControlName="cep" [class.is-invalid]="cep.invalid && cep.touched" type="cep" class="form-control" aria-describedby="cepHelp" placeholder="00000-000" required pattern="\d{2}\.{0,1}\d{3}-\d{3}">
                                     <div *ngIf="cep.invalid && cep.touched">
                                         <small *ngIf="cep.errors?.required" class="text-danger">É necessário informar um CEP.</small>
                                     </div>
                                 </div>
-                                <div class="h5 text-left" id="perguntaModalSubTitle">Perguntas personalizadas</div>
                                 <div class="form-group">
-                                    <div id="nome" class="form-group col-md-4">
-                                        <label for="inputName">Nome:</label>
-                                        <input id="inputName" formControlName="nome" type="text" class="form-control" placeholder="Nome" [class.is-invalid]="nome.invalid && nome.touched">
-                                        <small id="nameHelp" class="form-text text-muted">Digite seu nome.</small>
-                                        <div *ngIf="nome.invalid && nome.touched">
-                                            <small *ngIf="nome.errors?.required" class="text-danger">É necessário informar seu nome.</small>
+                                    <label for="inputTelefone">Telefone:</label>
+                                    <input id="inputTelefone" formControlName="telefone" [class.is-invalid]="telefone.invalid && telefone.touched" type="telefone" class="form-control" aria-describedby="telefoneHelp" placeholder="(DDD)00000-0000" required pattern="\(\d{2}\)\d{4,5}\-{0,1}\d{4}">
+                                    <div *ngIf="cep.invalid && cep.touched">
+                                        <small *ngIf="cep.errors?.required" class="text-danger">É necessário informar um Telefone para contato.</small>
+                                    </div>
+                                </div>
+                                <div class="h5 text-left" id="perguntaModalSubTitle">Perguntas personalizadas</div>
+
+                                <select id="inputCategoria" class="custom-select" formControlName="categoria" [class.is-invalid]="categoria.invalid && categoria.touched">
+                                    <option selected>Escolher categoria...</option>
+                                    <option *ngFor="let habilidade of cardClickedHabilidades">{{habilidade}}</option>
+                                </select>
+
+                                <div class="h5 text-left" id="perguntasLabelModalSubTitle">{{getCategoriaPerguntasLabel(categoria.value)}}</div>
+
+                                <div class="form-group">
+                                    <div *ngFor="let pergunta of getCategoriaPerguntas(categoria.value)">
+                                        <label for="inputPergunta">{{pergunta}}</label>
+                                        <input id="inputPergunta" formControlName="pergunta" type="text" class="form-control" placeholder="" [class.is-invalid]="pergunta.invalid && pergunta.touched">
+                                        <div *ngIf="pergunta.invalid && pergunta.touched">
+                                            <small *ngIf="pergunta.errors?.required" class="text-danger">É necessário responder as perguntas personalizadas</small>
                                         </div>
                                     </div>
                                 </div>
