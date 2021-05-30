@@ -1,23 +1,32 @@
 <div class="container-fluid">
-    <h2 id="fraseServ">Profissionais Disponíveis</h2>
+    <div id="header">
+        <select id="categoriaFiltro" class="custom-select" (change)="updateProfissionaisFiltro()">
+            <option selected>Escolher categoria...</option>
+            <option *ngFor="let pergunta of perguntasMock.perguntas">{{pergunta.categoria}}</option>
+        </select>
+
+        <h2 id="fraseServ">Profissionais Disponíveis</h2>
+    </div>
 
     <div class="card-columns" *ngIf="profissionais.length != 0 && profissionais != undefined">
-        <div class="card" *ngFor="let profissional of profissionais">
-            <!--<img class="card-img-top" src="{{playlist.capa}}" alt="jpg">-->
+        <div *ngFor="let profissional of profissionais">
+            <div class="card" *ngIf="filtroCategoriaSelector.selectedIndex == 0 || (filtroCategoriaSelector.selectedIndex > 0 && checkSelectCategory(filtroCategoriaSelector.value, profissional.habilidades))">
+                <!--<img class="card-img-top" src="{{playlist.capa}}" alt="jpg">-->
 
-            <div id="card">
-                <div class="card-block">
-                    <div>
-                        <img id="profilePicture" src="{{profissional.profilePicture}}" style="width:100%; height: 258px;" alt="Avatar">
-                    </div>
-
-                    <div>
-                        <h2 class="card-title">{{profissional.nome}}</h2>
-                        <div id="userSkillsDiv">
-                            <p id="userSkills" *ngFor="let habilidade of profissional.habilidades">{{habilidade}}</p>
+                <div id="card">
+                    <div class="card-block">
+                        <div>
+                            <img id="profilePicture" src="{{profissional.profilePicture}}" style="width:100%; height: 258px;" alt="Avatar">
                         </div>
-                        <div class="text-center">
-                            <a class="btn btn-primary" id="contactButtom" data-toggle="modal" data-target="#contactFormularioSm" (click)="setCardClickedCategorias(profissional.habilidades)">Entrar em Contato</a>
+
+                        <div>
+                            <h2 class="card-title">{{profissional.nome}}</h2>
+                            <div id="userSkillsDiv">
+                                <p id="userSkills" *ngFor="let habilidade of profissional.habilidades">{{habilidade}}</p>
+                            </div>
+                            <div class="text-center">
+                                <a class="btn btn-primary" id="contactButtom" data-toggle="modal" data-target="#contactFormularioSm" (click)="setCardClickedCategorias(profissional.habilidades)">Entrar em Contato</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -26,7 +35,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="contactFormularioSm" tabindex="-1" role="dialog" aria-labelledby="contractFormularioSmModalLabel" aria-hidden="true">
+<div class="modal fade" id="contactFormularioSm" tabindex="-1" role="dialog" aria-labelledby="contractFormularioSmModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -79,7 +88,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="inputTelefone">Telefone:</label>
-                                    <input id="inputTelefone" formControlName="telefone" [class.is-invalid]="telefone.invalid && telefone.touched" type="telefone" class="form-control" aria-describedby="telefoneHelp" placeholder="(DDD)00000-0000" required pattern="\(\d{2}\)\d{4,5}\-{0,1}\d{4}">
+                                    <input id="inputTelefone" formControlName="telefone" [class.is-invalid]="telefone.invalid && telefone.touched" type="telefone" class="form-control" aria-describedby="telefoneHelp" placeholder="(DDD)00000-0000" required pattern="\({0,1}\d{2}\){0,1}\d{4,5}\-{0,1}\d{4}">
                                     <div *ngIf="cep.invalid && cep.touched">
                                         <small *ngIf="cep.errors?.required" class="text-danger">É necessário informar um Telefone para contato.</small>
                                     </div>
@@ -96,16 +105,36 @@
                                 <div class="form-group">
                                     <div *ngFor="let pergunta of getCategoriaPerguntas(categoria.value)">
                                         <label for="inputPergunta">{{pergunta}}</label>
-                                        <input id="inputPergunta" formControlName="pergunta" type="text" class="form-control" placeholder="" [class.is-invalid]="pergunta.invalid && pergunta.touched">
-                                        <div *ngIf="pergunta.invalid && pergunta.touched">
-                                            <small *ngIf="pergunta.errors?.required" class="text-danger">É necessário responder as perguntas personalizadas</small>
+                                        <input id="inputPergunta" formControlName="pergunta{{getPerguntaIdIndex(pergunta)}}" type="text" class="form-control" placeholder="Resposta" [class.is-invalid]="getPerguntaIdIndexObject(pergunta).invalid && getPerguntaIdIndexObject(pergunta).touched">
+                                        <div *ngIf="getPerguntaIdIndexObject(pergunta).invalid && getPerguntaIdIndexObject(pergunta).touched">
+                                            <small *ngIf="getPerguntaIdIndexObject(pergunta).errors?.required" class="text-danger">É necessário responder as perguntas personalizadas</small>
                                         </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row" id="buttonRow">
+                                    <div class="form-group col-md-4">
+                                        <button id="botao" type="submit" class="btn btn-primary" [disabled]="form.invalid" data-toggle="modal" data-dismiss="modal" data-target="#formSent">Enviar</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="formSent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-notify modal-success" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-header d-flex justify-content-center">
+                <h6 class="heading">Formulário enviado com sucesso!</h6>
+            </div>
+
+            <div id="loginRequestFooter" class="modal-footer">
+                <a class="btn btn-success" data-dismiss="modal" (click)="formReset()">Fechar</a>
             </div>
         </div>
     </div>

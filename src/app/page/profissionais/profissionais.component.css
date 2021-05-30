@@ -78,6 +78,7 @@ p {
 #contactModalSubTitle {
     padding-left: 6.5%;
     padding-top: 1.5%;
+    padding-left: 22%;
 }
 
 .panel {
@@ -86,8 +87,38 @@ p {
     border-radius: 8px;
     margin-bottom: 5px;
     background-color: #edeeef;
+    align-content: center;
+    padding-left: 15%;
+    padding-right: 10%;
 }
 
 #perguntasLabelModalSubTitle {
     margin-top: 3%;
+}
+
+.heading {
+    color: black;
+}
+
+.modal-footer {
+    justify-content: center;
+}
+
+#sobrenome {
+    margin-left: 33%;
+}
+
+#buttonRow {
+    padding-left: 41%;
+}
+
+#header {
+    display: flex;
+}
+
+#categoriaFiltro {
+    width: 12%;
+    margin-left: 23%;
+    margin-right: 5%;
+    margin-top: 0.5%;
 }

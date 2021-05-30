@@ -79,8 +79,13 @@ export class UserProfileComponent implements OnInit {
       updatedUser = { id: this.user.id, nome: this.nome.value, sobrenome: this.sobrenome.value, email: this.email.value, senha: this.senha.value, dia: this.dia.value, mes: this.mes.value, ano: this.ano.value, sexo: this.sexo.value, tipoConta: this.tipoConta.value, habilidades: [], profilePicture: this.user.profilePicture}
     }
     else if(this.tipoConta.value == "Profissional"){
-      if(this.habilidades.value.length != 0){
+      if(this.habilidades.value.length != 0 && this.habilidades.value != undefined){
         this.ListaHabilidades = this.habilidades.value.split(",")
+
+        for (let i = 0; i < this.ListaHabilidades.length; i++) {
+          this.ListaHabilidades[i] = this.ListaHabilidades[i].trim()
+        }
+        
         this.user.habilidades = this.ListaHabilidades
 
         updatedUser = { id: this.user.id, nome: this.nome.value, sobrenome: this.sobrenome.value, email: this.email.value, senha: this.senha.value, dia: this.dia.value, mes: this.mes.value, ano: this.ano.value, sexo: this.sexo.value, tipoConta: this.tipoConta.value, habilidades: this.ListaHabilidades, profilePicture: this.user.profilePicture}
@@ -190,7 +195,7 @@ export class UserProfileComponent implements OnInit {
     this.ano.setValue(this.user.ano)
     this.sexo.setValue(this.user.sexo)
     this.tipoConta.setValue(this.user.tipoConta)
-    this.habilidades.setValue(this.user.habilidades)
+    //this.habilidades.setValue(this.user.habilidades)
   }
 
   loadImage(string: string) {

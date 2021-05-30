@@ -1,3 +1,4 @@
+import { HtmlParser } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -19,8 +20,10 @@ export class ProfissionaisComponent implements OnInit {
   perguntasMock: PerguntasMock
   cardsCount
   cardClickedHabilidades: String[]
+  filtroCategoriaSelector: HTMLSelectElement
+  profissionaisFiltro: Usuario[]
 
-  constructor(private formBuilder: FormBuilder, private profissionaisService: ProfissionaisService) { 
+  constructor(private formBuilder: FormBuilder, private profissionaisService: ProfissionaisService) {
     this.profissionais = []
     this.perguntasMock = new PerguntasMock()
     this.cardsCount = 0
@@ -43,15 +46,19 @@ export class ProfissionaisComponent implements OnInit {
       "cep": new FormControl('', Validators.required),
       "telefone": new FormControl('', Validators.required),
       "categoria": new FormControl('', Validators.required),
-      "pergunta": new FormControl('', Validators.required),
+      "pergunta0": new FormControl('', Validators.required),
+      "pergunta1": new FormControl('', Validators.required),
     });
 
     this.profissionaisService.getProfissionais().subscribe((profissionais: Usuario[]) => {
       this.profissionais = profissionais
+      this.profissionaisFiltro = profissionais
     })
+
+    this.filtroCategoriaSelector = <HTMLSelectElement>document.getElementById("categoriaFiltro")
   }
 
-  submit(){
+  submit() {
 
   }
 
@@ -79,31 +86,75 @@ export class ProfissionaisComponent implements OnInit {
     return this.form.get('categoria')
   }
 
-  get pergunta() {
-    return this.form.get('pergunta')
+  get pergunta0() {
+    return this.form.get('pergunta0')
   }
 
-  setCardClickedCategorias(habilidades: String[]){
+  get pergunta1() {
+    return this.form.get('pergunta1')
+  }
+
+  setCardClickedCategorias(habilidades: String[]) {
     this.cardClickedHabilidades = habilidades
   }
 
-  getCategoriaPerguntasLabel(categoria: String){
+  getCategoriaPerguntasLabel(categoria: String) {
     for (let i = 0; i < this.perguntasMock.perguntas.length; i++) {
       if (categoria == this.perguntasMock.perguntas[i].categoria) {
-          return this.perguntasMock.perguntas[i].label + ":"
+        return this.perguntasMock.perguntas[i].label + ":"
       }
     }
   }
 
-  getCategoriaPerguntas(categoria: String){
+  getCategoriaPerguntas(categoria: String) {
     for (let i = 0; i < this.perguntasMock.perguntas.length; i++) {
       if (categoria == this.perguntasMock.perguntas[i].categoria) {
-          return this.perguntasMock.perguntas[i].perguntas
+        return this.perguntasMock.perguntas[i].perguntas
       }
     }
   }
 
-  formReset(){
-    this.form.reset
+  formReset() {
+    this.form.reset()
+    this.categoria.setValue("Escolher categoria...")
+    /*this.categoria.setValue(0)
+    this.pergunta0.setValue(0)
+    this.pergunta1.setValue(0)
+    this.pergunta0.reset()
+    this.pergunta1.setValue(0)*/
+  }
+
+  getPerguntaIdIndex(pergunta) {
+    return this.getCategoriaPerguntas(this.categoria.value).indexOf(pergunta)
+  }
+
+  getPerguntaIdIndexObject(pergunta) {
+    if (this.getPerguntaIdIndex(pergunta) == 0) {
+      return this.pergunta0
+    } else {
+      return this.pergunta1
+    }
+  }
+
+  checkSelectCategory(categoria: string, habilidades: string[]) {
+    for (let i = 0; i < habilidades.length; i++) {
+      if (habilidades[i] == categoria) {
+        return true
+      }
+    }
+
+    return false
+  }
+
+  updateProfissionaisFiltro() {
+    /*this.profissionaisFiltro = []
+
+    for (let i = 0; i < this.profissionais.length; i++) {
+      for (let j = 0; j < this.profissionais[i].habilidades.length; j++) {
+        if (this.profissionais[i].habilidades[j] == this.filtroCategoriaSelector.value) {
+          this.profissionaisFiltro.push(this.profissionais[i])
+        }
+      }
+    }*/
   }
 }
