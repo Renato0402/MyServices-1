@@ -31,14 +31,6 @@ export class ProfissionaisComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.isLoggedIn$ = this.usersService.isLoggedIn();
-
-    /*if (this.usersService.getLocalUser() != null) {
-      this.user = this.usersService.getLocalUser()
-
-      this.updateUserPlaylists()
-    }*/
-
     this.form = this.formBuilder.group({
       "nome": new FormControl('', Validators.required),
       "sobrenome": new FormControl('', Validators.required),
