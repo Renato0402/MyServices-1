@@ -81,14 +81,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="inputCEP">CEP:</label>
-                                    <input id="inputCEP" formControlName="cep" [class.is-invalid]="cep.invalid && cep.touched" type="cep" class="form-control" aria-describedby="cepHelp" placeholder="00000-000" required pattern="\d{2}\.{0,1}\d{3}-\d{3}">
+                                    <input id="inputCEP" formControlName="cep" [class.is-invalid]="cep.invalid && cep.touched" type="cep" class="form-control" aria-describedby="cepHelp" placeholder="00000-000" required pattern="\d{2}\.?\d{3}-\d{3}">
                                     <div *ngIf="cep.invalid && cep.touched">
                                         <small *ngIf="cep.errors?.required" class="text-danger">É necessário informar um CEP.</small>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputTelefone">Telefone:</label>
-                                    <input id="inputTelefone" formControlName="telefone" [class.is-invalid]="telefone.invalid && telefone.touched" type="telefone" class="form-control" aria-describedby="telefoneHelp" placeholder="(DDD)00000-0000" required pattern="\({0,1}\d{2}\){0,1}\d{4,5}\-{0,1}\d{4}">
+                                    <input id="inputTelefone" formControlName="telefone" [class.is-invalid]="telefone.invalid && telefone.touched" type="telefone" class="form-control" aria-describedby="telefoneHelp" placeholder="(DDD)00000-0000" required pattern="\(?\d{2}\)?\d{4,5}\-?\d{4}">
                                     <div *ngIf="cep.invalid && cep.touched">
                                         <small *ngIf="cep.errors?.required" class="text-danger">É necessário informar um Telefone para contato.</small>
                                     </div>

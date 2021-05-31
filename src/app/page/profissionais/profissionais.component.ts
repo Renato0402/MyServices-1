@@ -147,14 +147,5 @@ export class ProfissionaisComponent implements OnInit {
   }
 
   updateProfissionaisFiltro() {
-    /*this.profissionaisFiltro = []
-
-    for (let i = 0; i < this.profissionais.length; i++) {
-      for (let j = 0; j < this.profissionais[i].habilidades.length; j++) {
-        if (this.profissionais[i].habilidades[j] == this.filtroCategoriaSelector.value) {
-          this.profissionaisFiltro.push(this.profissionais[i])
-        }
-      }
-    }*/
   }
 }
