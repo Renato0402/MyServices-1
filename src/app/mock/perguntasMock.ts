@@ -23,7 +23,7 @@ export class PerguntasMock {
         this.perguntas[13] = {categoria: "Engenheiro Civil", label:"Informações sobre a obra que será construída", perguntas: ["Qual o tipo de obra? Ex: Prédio, Casa", "Qual o orçamento da obra?"]}
         this.perguntas[14] = {categoria: "Palhaço", label:"Informações sobre o evento ou ocasição na qual o Palhaço se apresentará", perguntas: ["Qual a faixa etária das crianças presentes?", "Qual o tipo de ocasião? Ex: Aniversário Infantil, Evento familiar"]}
         this.perguntas[15] = {categoria: "Comediante", label:"Informações sobre o evento ou ocasição na qual o Comediante se apresentará", perguntas: ["Qual o público alvo? Ex:infantil, adulto", "Qual o tipo de ocasião? Ex: Evento aberto ao público, Evento privado"]}
-        this.perguntas[16] = {categoria: "Corretor de Imóveis", label:"Informações sobre o ímovel", perguntas: ["Qual o ímovel disponível?", "Quais as formas de pagamento?"]}
-        this.perguntas[17] = {categoria: "Professor de Tênis", label:"Informações sobre a aula de tênis desejada", perguntas: ["Qual o dia, turno e horário da aula ?", "Qual a duração da aula?"]}
+        //this.perguntas[16] = {categoria: "Corretor de Imóveis", label:"Informações sobre o ímovel", perguntas: ["Qual o ímovel disponível?", "Quais as formas de pagamento?"]}
+        this.perguntas[16] = {categoria: "Professor de Tênis", label:"Informações sobre a aula de tênis desejada", perguntas: ["Qual o dia, turno e horário da aula ?", "Qual a duração da aula?"]}
     }
 }
